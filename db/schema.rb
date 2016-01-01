@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101042731) do
+ActiveRecord::Schema.define(version: 20160101064737) do
+
+  create_table "current_day_lists", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.boolean  "complete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "daily_tasks", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "complete"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title"

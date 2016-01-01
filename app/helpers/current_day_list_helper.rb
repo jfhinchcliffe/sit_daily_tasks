@@ -1,0 +1,2 @@
+module CurrentDayListHelper
+end

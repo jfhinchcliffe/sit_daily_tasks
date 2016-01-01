@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
+
   devise_for :users
 
   resources :tasks
+
+  resources :current_day_lists
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
