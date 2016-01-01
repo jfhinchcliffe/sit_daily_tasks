@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  date_schedule: 2016-01-01 15:27:31
+  repeats: false
+  monday: false
+  tuesday: false
+  wednesday: false
+  thursday: false
+  friday: false
+  saturday: false
+  sunday: false
+
+two:
+  title: MyString
+  description: MyString
+  date_schedule: 2016-01-01 15:27:31
+  repeats: false
+  monday: false
+  tuesday: false
+  wednesday: false
+  thursday: false
+  friday: false
+  saturday: false
+  sunday: false

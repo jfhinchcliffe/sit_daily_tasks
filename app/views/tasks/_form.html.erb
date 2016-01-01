@@ -1,0 +1,25 @@
+<%= form_for @task do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :date_schedule %>
+  <%= f.date_field :date_schedule %>
+  <%= f.label :repeats %>
+  <%= f.check_box :repeats %>
+  <%= f.label :monday %>
+  <%= f.check_box :monday %>
+  <%= f.label :tuesday %>
+  <%= f.check_box :tuesday %>
+  <%= f.label :wednesday %>
+  <%= f.check_box :wednesday %>
+  <%= f.label :thursday %>
+  <%= f.check_box :thursday %>
+  <%= f.label :friday %>
+  <%= f.check_box :friday %>
+  <%= f.label :saturday %>
+  <%= f.check_box :saturday %>
+  <%= f.label :sunday %>
+  <%= f.check_box :sunday %>
+  <%= f.submit %>
+<% end %>

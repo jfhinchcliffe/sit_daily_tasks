@@ -1,0 +1,31 @@
+<ul class="list-unstyled">
+  <li><strong>Title:</strong> <%= @task.title %></li>
+  <li><strong>Description:</strong> <%= @task.description %></li>
+  <li><strong>Date Scheduled:</strong> <%= @task.date_schedule.strftime("%A %d %B, %Y") %></li>
+  <li><strong>Repeats:</strong> <%= @task.repeats %></li>
+</ul>
+<strong>Days Repeating</strong>
+<table class="table">
+  <tr>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+    <th>Sunday</th>
+  </tr>
+  <tr>
+    <td><%= @task.monday %></td>
+    <td><%= @task.tuesday %></td>
+    <td><%= @task.wednesday %></td>
+    <td><%= @task.thursday %></td>
+    <td><%= @task.friday %></td>
+    <td><%= @task.saturday %></td>
+    <td><%= @task.sunday %></td>
+  </tr>
+</table>
+
+<%= link_to "Edit Task", edit_task_path(@task), class: "btn btn-default" %>
+
+<%= link_to "Back to Tasks", tasks_path, class: "btn btn-default" %>
