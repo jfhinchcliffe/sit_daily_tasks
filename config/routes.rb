@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :tasks
+  resources :tasks do
+    member do
+      get :done
+    end
+  end
 
   resources :current_day_lists
   # The priority is based upon order of creation: first created -> highest priority.

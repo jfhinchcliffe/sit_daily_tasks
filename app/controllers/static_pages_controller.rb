@@ -5,25 +5,40 @@ class StaticPagesController < ApplicationController
     #current day for verification below
     current_day = Date.today.strftime("%A").to_s.downcase
     #initialising array
-    @current_scheduled_tasks = []
+    current_scheduled_tasks = []
     #looks for match on current day and where appropriate
     #task day is set to 'true', adding task to array.
     Task.all.each do |task|
       if current_day == "monday" && task.monday == true
-        @current_scheduled_tasks.push(task)
+        current_scheduled_tasks.push(task)
       elsif current_day == "tuesday" && task.tuesday == true
-        @current_scheduled_tasks.push(task)
+        current_scheduled_tasks.push(task)
       elsif current_day == "wednesday" && task.wednesday == true
-        @current_scheduled_tasks.push(task)
+        current_scheduled_tasks.push(task)
       elsif current_day == "thursday" && task.thursday == true
-        @current_scheduled_tasks.push(task)
+        current_scheduled_tasks.push(task)
       elsif current_day == "friday" && task.friday == true
-        @current_scheduled_tasks.push(task)
+        current_scheduled_tasks.push(task)
       elsif current_day == "saturday" && task.saturday == true
-        @current_scheduled_tasks.push(task)
+        current_scheduled_tasks.push(task)
       elsif current_day == "sunday" && task.sunday == true
-        @current_scheduled_tasks.push(task)
+        current_scheduled_tasks.push(task)
+      end
+    end
+
+    @daily_tasks = []
+
+
+    current_scheduled_tasks.each do |cst|
+      if DailyTask.where(title: cst.title, description: cst.description).blank?
+        dt = DailyTask.new
+        dt.title = cst.title
+        dt.description = cst.description
+        dt.complete = false
+        dt.save
+        @daily_tasks.push(dt)
       end
     end
   end
+
 end

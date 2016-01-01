@@ -29,6 +29,17 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def done
+    done_task = params[:done_task].to_i
+    completed_task = DailyTask.find(done_task)
+    completed_task.update(complete: true)
+    #completed_task.save
+    #DailyTask.find(done_task).update(complete: true)
+    #completed_task.update(complete: true)
+    #completed_task.save
+    redirect_to root_path
+  end
+
   private
 
     def task_params
