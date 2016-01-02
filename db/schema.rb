@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101064737) do
+ActiveRecord::Schema.define(version: 20160101225331) do
 
   create_table "current_day_lists", force: :cascade do |t|
     t.string   "title"
@@ -25,9 +25,12 @@ ActiveRecord::Schema.define(version: 20160101064737) do
     t.string   "title"
     t.string   "description"
     t.boolean  "complete"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "current_day_list_id"
   end
+
+  add_index "daily_tasks", ["current_day_list_id"], name: "index_daily_tasks_on_current_day_list_id"
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title"

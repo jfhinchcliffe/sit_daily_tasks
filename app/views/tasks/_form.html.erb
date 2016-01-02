@@ -1,25 +1,43 @@
+
 <%= form_for @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.label :date_schedule %>
-  <%= f.date_field :date_schedule %>
-  <%= f.label :repeats %>
-  <%= f.check_box :repeats %>
-  <%= f.label :monday %>
-  <%= f.check_box :monday %>
-  <%= f.label :tuesday %>
-  <%= f.check_box :tuesday %>
-  <%= f.label :wednesday %>
-  <%= f.check_box :wednesday %>
-  <%= f.label :thursday %>
-  <%= f.check_box :thursday %>
-  <%= f.label :friday %>
-  <%= f.check_box :friday %>
-  <%= f.label :saturday %>
-  <%= f.check_box :saturday %>
-  <%= f.label :sunday %>
-  <%= f.check_box :sunday %>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :title, class: "control-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :date_schedule %>
+    <%= f.date_field :date_schedule, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :repeats %>
+    <%= f.check_box :repeats, class: "form-control" %>
+  </div>
+<table class="table">
+  <tr>
+    <th><%= f.label :monday %></th>
+    <th><%= f.label :tuesday %></th>
+    <th><%= f.label :wednesday %></th>
+    <th><%= f.label :thursday %></th>
+    <th><%= f.label :friday %></th>
+    <th><%= f.label :saturday %></th>
+    <th><%= f.label :sunday %></th>
+  </tr>
+  <tr>
+    <td><%= f.check_box :monday %></td>
+    <td><%= f.check_box :tuesday %></td>
+    <td><%= f.check_box :wednesday %></td>
+    <td><%= f.check_box :thursday %></td>
+    <td><%= f.check_box :friday %></td>
+    <td><%= f.check_box :saturday %></td>
+    <td><%= f.check_box :sunday %></td>
+  </tr>
+</table>
+<div class="form-actions">
+    <%= f.submit %>
+  </div>
+
 <% end %>

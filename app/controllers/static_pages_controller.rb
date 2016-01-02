@@ -25,20 +25,20 @@ class StaticPagesController < ApplicationController
         current_scheduled_tasks.push(task)
       end
     end
-
+    #create a new CurretnDayList if one isn't already created
+    @current_day_list = CurrentDayList.find_or_create_by(title: @current_date)
+    #instantiate daily tasks array
     @daily_tasks = []
-
-
+    #run through each task in the array and create a daily task,
+    # owned by the current day.
     current_scheduled_tasks.each do |cst|
-      if DailyTask.where(title: cst.title, description: cst.description).blank?
-        dt = DailyTask.new
-        dt.title = cst.title
-        dt.description = cst.description
-        dt.complete = false
-        dt.save
-        @daily_tasks.push(dt)
+      @cdl = @current_day_list.daily_tasks.where(title: cst.title, description: cst.description)
+      unless @cdl
+        @current_day_list.daily_tasks.new(title: cst.title, description: cst.description, complete: false)
       end
     end
+
+    @daily_tasks = @current_day_list.daily_tasks.all
   end
 
 end
