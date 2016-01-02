@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :tasks do
     member do
       get :done
+      get :reset_task
     end
   end
 
