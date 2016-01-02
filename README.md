@@ -8,5 +8,4 @@ Tasks can be updated by pressing the 'Complete Task' button.
 
 *To Do*
 
-- Allow scheduling of tasks for specific days.
-- 
+Allow scheduling of tasks for specific days.
