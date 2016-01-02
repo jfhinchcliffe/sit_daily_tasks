@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  before_action :authenticate_user!
   def home
     #current date for title of homepage
     @current_date = Date.today.strftime("%A %d %B, %Y")

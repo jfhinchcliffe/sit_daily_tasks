@@ -1,0 +1,18 @@
+<%= @current_day_list.title %>
+
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Complete?</th>
+    <th>Update Time</td>
+  </tr>
+  <tr>
+    <% @daily_tasks.each do |dt| %>
+      <td><%= dt.title %></td>
+      <td><%= dt.description %></td>
+      <td><%= dt.complete %></td>
+      <td><%= dt.updated_at %></td>
+    </tr>
+<% end %>
+</table>

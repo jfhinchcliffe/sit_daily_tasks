@@ -1,1 +1,11 @@
-Tasks for <%= @current_date %>
+
+<table class="table">
+  <tr>
+    <th>Title</th>
+  </tr>
+  <% @current_day_lists.each do |cdl| %>
+    <tr>
+      <td><%= link_to cdl.title, current_day_list_path(cdl) %></td>
+    </tr>
+  <% end %>
+</table>
