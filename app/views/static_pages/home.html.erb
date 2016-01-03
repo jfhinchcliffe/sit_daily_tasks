@@ -15,7 +15,7 @@
     </p>
   </div>
 <% end %>
-
+<h3>Daily Repeating Tasks</h3>
 <table class="table">
   <tr>
     <th>Title</th>
@@ -33,5 +33,24 @@
       <% end %>
     </tr>
   <% end %>
+</table>
 
+<h3>Tasks for Today Only</h3>
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Completed</th>
+  </tr>
+  <% @scheduled_tasks.each do |cst| %>
+    <tr>
+      <td><%= cst.title %></td>
+      <td><%= cst.description %></td>
+      <% if cst.complete == false %>
+        <td><%= link_to "Complete Task", done_task_path(cst, done_task: cst.id), class: "btn btn-success" %></td>
+      <% else %>
+        <td><%= link_to "Already Done", reset_task_task_path(cst, reset_task: cst.id), class: "btn btn-info" %></td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
