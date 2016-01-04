@@ -1,3 +1,14 @@
+<% if @task.errors.any? %>
+  <div class="alert alert-danger">
+    <strong>Errors</strong>
+    <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 
 <%= form_for @task do |f| %>
   <div class="form-group">
@@ -8,9 +19,12 @@
     <%= f.label :description %>
     <%= f.text_area :description, class: "form-control" %>
   </div>
+  <p>
+    Leave
+  </p>
   <div class="form-group">
     <%= f.label :date_schedule %>
-    <%= f.date_field :date_schedule, class: "form-control" %>
+    <%= f.date_field :date_schedule, value: (Date.yesterday unless !@task.new_record?), class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :repeats %>

@@ -1,0 +1,18 @@
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Completed</th>
+  </tr>
+  <% task.each do |dt| %>
+    <tr>
+      <td><%= dt.title %></td>
+      <td><%= dt.description %></td>
+      <% if dt.complete == false %>
+        <td><%= link_to "Complete Task", done_task_path(dt, done_task: dt.id), class: "btn btn-success" %></td>
+      <% else %>
+        <td><%= link_to "Already Done", reset_task_task_path(dt, reset_task: dt.id), class: "btn btn-info" %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
