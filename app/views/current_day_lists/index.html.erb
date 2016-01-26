@@ -1,6 +1,12 @@
+<div class="bg-info text-center top-info">
+  <p>
+    <h4>Click on a date to see a list of tasks completed on that day.</h4><br>
+    If there is no entry for the current day, navigate to <%= link_to "the homepage", root_path %> to create one based on the current day's tasks.
+  </p>
+</div>
 <table class="table">
   <tr>
-    <th>Title</th>
+    <th>Date</th>
   </tr>
   <% @current_day_lists.each do |cdl| %>
     <tr>
