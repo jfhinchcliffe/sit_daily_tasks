@@ -13,16 +13,7 @@ class StaticPagesController < ApplicationController
     #populate_currentdaylist(current_tasks)
     @complete_task_count = 0
     @incomplete_task_count = 0
-    #run through each task in the array and create
-    #a daily task, owned by the current day.
-    current_tasks.each do |cst|
-      @cdl = @current_day_list.daily_tasks.find_or_create_by(title: cst.title, description: cst.description, complete: [true, false])
-      @daily_tasks.push(@cdl)
-      if @cdl.complete == true
-        @complete_task_count += 1
-      elsif @cdl.complete == false
-        @incomplete_task_count += 1
-      end
-    end
+    #builds incomplete and incomplete values in current_day_list_helper
+    count_complete_and_incomplete_tasks(current_tasks)
   end
 end
