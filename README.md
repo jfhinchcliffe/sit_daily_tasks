@@ -6,6 +6,8 @@ Front page checks the current day and displays all applicable tasks. A team of w
 
 Tasks can be updated by pressing the 'Complete Task' button and reset the task by clicking 'Reset'.
 
+Currently running at https://infinite-savannah-79149.herokuapp.com/
+
 *To Do*
 
 - Extend beyond one person / team (user associations etc.)
