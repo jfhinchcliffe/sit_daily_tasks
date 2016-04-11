@@ -40,6 +40,10 @@ module CurrentDayListHelper
       elsif @cdl.complete == false
         @incomplete_task_count += 1
       end
+      if @incomplete_task_count == 0
+        @user = current_user.email
+        UserMailer.jobs_done(@user).deliver_now
+      end
     end
   end
 
