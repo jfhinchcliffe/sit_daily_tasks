@@ -6,7 +6,7 @@ module CurrentDayListHelper
     current_tasks = []
     #goes through every task and matches task day value
     #to current_day string. Adds to array if there's a match
-    Task.all.each do |task|
+    current_user.tasks.all.each do |task|
       if task.repeats == true
         if current_day == "monday" && task.monday == true
           current_tasks.push(task)
